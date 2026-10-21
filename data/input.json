@@ -1,0 +1,296 @@
+{
+  "rules": {
+    "base": "2026-10-20",
+    "boundary": "2026-10-01",
+    "minutes": 60
+  },
+  "base": [
+    {
+      "key": "line-1",
+      "id": "R01",
+      "task": "資料整理A",
+      "value": "2",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-2",
+      "id": "R02",
+      "task": "伝票点検B",
+      "value": "",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-3",
+      "id": "R03",
+      "task": "転記C",
+      "value": "0",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-4",
+      "id": "R04",
+      "task": "台帳整理D",
+      "value": "3",
+      "unit": "時間",
+      "date": "2026-09-30"
+    },
+    {
+      "key": "line-5",
+      "id": "R05",
+      "task": "資料整理E",
+      "value": "90",
+      "unit": "分",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-6",
+      "id": "R06",
+      "task": "書類点検F",
+      "value": "1",
+      "unit": "日",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-7",
+      "id": "R07",
+      "task": "伝票整理G",
+      "value": "",
+      "unit": "時間",
+      "date": "2026-09-29"
+    },
+    {
+      "key": "line-8",
+      "id": "R08",
+      "task": "台帳点検H",
+      "value": "2",
+      "unit": "時間",
+      "date": ""
+    }
+  ],
+  "teaching": [
+    {
+      "key": "line-1",
+      "id": "R01",
+      "task": "資料整理A",
+      "value": "2",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-2",
+      "id": "R02",
+      "task": "伝票点検B",
+      "value": "",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-3",
+      "id": "R03",
+      "task": "転記C",
+      "value": "0",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-4",
+      "id": "R04",
+      "task": "台帳整理D",
+      "value": "3",
+      "unit": "時間",
+      "date": "2026-09-30"
+    },
+    {
+      "key": "line-5",
+      "id": "R05",
+      "task": "資料整理E",
+      "value": "90",
+      "unit": "分",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-6",
+      "id": "R06",
+      "task": "書類点検F",
+      "value": "1",
+      "unit": "日",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-7",
+      "id": "R07",
+      "task": "伝票整理G",
+      "value": "",
+      "unit": "時間",
+      "date": "2026-09-29"
+    },
+    {
+      "key": "line-8",
+      "id": "R08",
+      "task": "台帳点検H",
+      "value": "2",
+      "unit": "時間",
+      "date": ""
+    },
+    {
+      "key": "line-9",
+      "id": "R09",
+      "task": "資料確認I",
+      "value": "二",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-10",
+      "id": "R10",
+      "task": "書類整理J",
+      "value": "-2",
+      "unit": "時間",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "line-11",
+      "id": "R11",
+      "task": "台帳確認K",
+      "value": "2",
+      "unit": "時間",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "line-12",
+      "id": "R12",
+      "task": "転記点検L",
+      "value": "2",
+      "unit": "時間",
+      "date": "2026-02-30"
+    },
+    {
+      "key": "line-13",
+      "id": "R01",
+      "task": "資料整理M",
+      "value": "1",
+      "unit": "時間",
+      "date": "2026-10-18"
+    }
+  ],
+  "expected": [
+    {
+      "key": "line-1",
+      "source": {
+        "key": "line-1",
+        "id": "R01",
+        "task": "資料整理A",
+        "value": "2",
+        "unit": "時間",
+        "date": "2026-10-18"
+      },
+      "reasons": [],
+      "hours": 2
+    },
+    {
+      "key": "line-2",
+      "source": {
+        "key": "line-2",
+        "id": "R02",
+        "task": "伝票点検B",
+        "value": "",
+        "unit": "時間",
+        "date": "2026-10-18"
+      },
+      "reasons": [
+        "欠損"
+      ],
+      "hours": null
+    },
+    {
+      "key": "line-3",
+      "source": {
+        "key": "line-3",
+        "id": "R03",
+        "task": "転記C",
+        "value": "0",
+        "unit": "時間",
+        "date": "2026-10-18"
+      },
+      "reasons": [],
+      "hours": 0
+    },
+    {
+      "key": "line-4",
+      "source": {
+        "key": "line-4",
+        "id": "R04",
+        "task": "台帳整理D",
+        "value": "3",
+        "unit": "時間",
+        "date": "2026-09-30"
+      },
+      "reasons": [
+        "古い記録"
+      ],
+      "hours": 3
+    },
+    {
+      "key": "line-5",
+      "source": {
+        "key": "line-5",
+        "id": "R05",
+        "task": "資料整理E",
+        "value": "90",
+        "unit": "分",
+        "date": "2026-10-18"
+      },
+      "reasons": [],
+      "hours": 1.5
+    },
+    {
+      "key": "line-6",
+      "source": {
+        "key": "line-6",
+        "id": "R06",
+        "task": "書類点検F",
+        "value": "1",
+        "unit": "日",
+        "date": "2026-10-18"
+      },
+      "reasons": [
+        "換算条件不足"
+      ],
+      "hours": null
+    },
+    {
+      "key": "line-7",
+      "source": {
+        "key": "line-7",
+        "id": "R07",
+        "task": "伝票整理G",
+        "value": "",
+        "unit": "時間",
+        "date": "2026-09-29"
+      },
+      "reasons": [
+        "欠損",
+        "古い記録"
+      ],
+      "hours": null
+    },
+    {
+      "key": "line-8",
+      "source": {
+        "key": "line-8",
+        "id": "R08",
+        "task": "台帳点検H",
+        "value": "2",
+        "unit": "時間",
+        "date": ""
+      },
+      "reasons": [
+        "日付不明"
+      ],
+      "hours": 2
+    }
+  ]
+}

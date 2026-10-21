@@ -1,0 +1,11 @@
+{
+  "name": "business-table-quality-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "架空の業務表の確認理由を残して人が照合する公開デモ",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node server.mjs", "check": "node --check server.mjs && node --check app.js" },
+  "dependencies": {}
+}

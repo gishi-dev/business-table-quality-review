@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>業務表の確認室 | サンプル事務室</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header><div class="eyebrow">公開デモ / サンプル事務室</div><h1>集計の前に、行ごとの理由を残す</h1><p>業務表の確認室 <span class="step">01 表を見る → 02 理由を照合 → 03 人が判断 → 04 確認票を出す</span></p></header>
+  <main>
+    <aside class="notice"><strong>架空のデータで試す、実演モード</strong><p>事前に用意したAIの出力例を再生しています。その場でAIを呼んでいません。入力を変えた行は「再整理待ち」になり、AIは再処理しません。元表の上書き・質問の送信・外部APIへの接続は行いません。</p></aside>
+    <section class="toolbar"><label>AIの出力の版<select id="version"><option value="revised">修正版 / 理由を別々に残す</option><option value="first">初版 / 1行1状態</option><option value="teaching">誤りの教材 / 意図的な誤りを含む</option></select></label><button id="load">選んだ版で最初から試す</button><p>切り替えると表・照合結果を初期化します。判断の履歴は残ります。</p></section>
+    <p id="teaching" class="warning" hidden>この版は照合用に意図的に入れた行を含みます。文字列・負数・未来日・存在しない日付・重複と、空欄の0補完・「1日＝8時間」の推測換算は教材です。AIの自然な失敗を観察した結果ではありません。</p>
+    <p class="caption">仮ルールは教材の設定です。業種共通の基準や勤務時間の定義ではありません。</p>
+    <details id="rule-panel"><summary>教材の仮ルールを編集</summary><p>業種共通の基準や勤務時間の定義ではありません。「日」は換算表では決めず、行ごとに人が元記録を確認して入力します。</p><div class="fields"><label>基準日<input id="base" type="date"></label><label>古さの境界（この日より前）<input id="boundary" type="date"></label><label>1時間あたりの分<input id="minutes" type="number" min="0.01" step="any"></label><button id="rules-save">仮ルールを適用</button></div><p>換算表：時間 → そのまま / 分 → 入力した分数で割る / 日 → 人の確認まで保留。変更すると全行のAI出力と照合結果を解除します。固定の想定表は更新しません。</p></details>
+    <div id="counts" class="metrics"></div>
+    <p class="caption">「比較候補」は仮ルール上の問題がないという意味です。元記録を確認済み・集計してよいという意味ではありません。0は記録された値として残し、意味を人が確認します。</p>
+    <div class="workspace">
+      <section class="panel list-panel"><div class="section-title"><h2>01 作業時間表</h2><span>架空の入力</span></div><div id="rows"></div><button id="add">行を追加</button><details><summary>CSVを貼り付けて表を置き換える</summary><p>見出しは id,task,value,unit,date。日付は YYYY-MM-DD。空欄を残せます。最大100行、引用符付きの欄に対応します。すべて再整理待ちになります。</p><label>CSV<textarea id="csv" rows="6" placeholder="id,task,value,unit,date"></textarea></label><button id="csv-load">CSVを読み込む</button></details></section>
+      <section id="review" class="panel"></section>
+    </div>
+    <section class="panel" id="ai-panel"><h2>AIの整理を手元で作る場合</h2><p>接続機能はありません。架空データだけを使ってください。現在の行・仮ルール・項目の説明と指示をコピーし、別途作ったJSONを貼り付けます。人が出力を編集しても構いません。</p><button id="prompt-copy">現在の表の指示とJSONひな形をコピー</button><details><summary>指示とJSONひな形を表示</summary><label>コピーする内容<textarea id="prompt" readonly rows="9"></textarea></label></details><label>AI出力のJSON<textarea id="ai-json" rows="5" placeholder='{"rules":...,"rows":[...]}'></textarea></label><button id="ai-import">JSONを確認して取り込む</button><p>元の行・仮ルール・内部行番号が一致する出力だけを受け付けます。理由と換算値はコードと照合し、不一致のまま「比較に使う」として確定できません。部分的な取り込みもできます。</p></section>
+    <section class="panel" id="report"><div class="section-title"><h2>04 確認票と判断の履歴</h2><button id="export">確認票・質問・履歴をJSONで書き出す</button></div><p>未確認の行も状態を付けて出力します。AIの質問は下書きで、送信しません。操作内容はこの画面のメモリーだけに残り、再読み込みで消えます。</p><div id="report-content"></div><details id="export-preview-panel"><summary>書き出したJSONを表示</summary><p>保存内容をここでも確認・コピーできます。</p><label>確認票のJSON<textarea id="export-preview" readonly rows="10"></textarea></label></details></section>
+  </main>
+  <footer>AI：確認理由の整理と質問の下書き / コード：判定・換算・照合・制御 / 人：元記録との照合と理由付きの判断</footer>
+  <div id="message" role="status" aria-live="polite"></div>
+</body>
+</html>
